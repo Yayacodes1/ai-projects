@@ -16,6 +16,13 @@ from dotenv import load_dotenv
 load_dotenv()
 # load environment variables from a .env file into the environment
 
+
+@tool
+def calculator(a: float, b: float) -> str:
+    """Useful for when you need to perform calculations"""
+    print("tool has been called")
+    return f"The sum of {a} and {b} is {a + b}"
+
 def main():
     # main function to run the agent
     
@@ -51,12 +58,19 @@ def main():
 
         for chunk in agent_executor.stream(
             {"messages": [HumanMessage(content=user_input)]}):
-           # we are streaming the agent's response in chunks
-           # we are passing the user's input as a HumanMessage inside a list
-           # inside a dictionary with the key "messages" 
+            # we are streaming the agent's response in chunks
+
            if "agent" in chunk and "messages" in chunk["agent"]:
+               # if the chunk contains agent messages
+            # we iterate through each message in the chunk
+
                for message in chunk["agent"]["messages"]:
-                       print(message["text"], end="")
+                       print(message.content, end="")
+                       # we print the text of each agent message without a newline
 
         print()
         # we print a newline after the agent's response is complete
+
+if __name__ == "__main__":
+    main()
+    # if this script is run directly we call the main function to start the program 
