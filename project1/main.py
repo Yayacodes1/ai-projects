@@ -23,7 +23,7 @@ def main():
     #here we are setting the temperature of the model we are getting to use .
     #  0 means we want less randomeness. and we are save it inside a model variable
    
-    tools = []
+    tools = [] 
     # we are creating an empty list to store our tools
 
     agent_executor = create_react_agent(model, tools)
