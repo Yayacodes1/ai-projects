@@ -1,0 +1,32 @@
+lone on Mac
+cd ~/your/folder
+git clone <repo-url>
+cd project1
+
+3. Create & activate venv
+python3 -m venv venv
+source venv/bin/activate
+
+4. Install dependencies
+pip install numpy scipy sounddevice openai-whisper openai python-dotenv
+
+
+Or pip install -r requirements.txt if you have one.
+
+5. Add .env
+OPENAI_API_KEY=your_openai_api_key_here
+
+6. Allow microphone access
+
+System Settings → Security & Privacy → Microphone → Allow Terminal/Python
+
+7. Run the app
+source venv/bin/activate
+python audio.py
+
+
+Press Enter to start recording.
+
+Speak, then press Enter to stop.
+
+Transcribed text and GPT response are printed.
